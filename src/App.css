@@ -22,8 +22,9 @@
 }
 
 .header > h1 {
-  color: #fc3c3c;
+  color: #990000;
   font-size: 2rem;
+  text-decoration: overline underline;
 }
 
 .left {
