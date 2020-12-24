@@ -13,7 +13,8 @@
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
-  background-color: #f5f6fa;
+  background-image: url("./brushed-alum.png");
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .dropdown {
@@ -21,10 +22,14 @@
   margin-top: 10px;
 }
 
+.options {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+}
+
 .header > h1 {
   color: #990000;
   font-size: 2rem;
-  text-decoration: overline underline;
 }
 
 .left {

@@ -65,7 +65,6 @@ function LineGraph({ casesType, ...props }) {
   fetchData();
 }, [casesType]);
 
-
    const buildChartData = (data, casesType = "cases") => {
      const chartData = [];
      let lastDataPoint;
@@ -83,27 +82,35 @@ function LineGraph({ casesType, ...props }) {
      return chartData;
    };
 
-  
-
  
     return (
-        <div className={props.className}>
-            {/* Optional Chaining, checks if data even exists */}
-            {data?.length > 0 && (
-            <Line 
-                options={options}
-                data={{
-                    datasets: [
-                        {
-                            backgroundColor: "rgba(204, 16, 52, 0.5)",
-                            borderColor: "#CC104",
-                            data: data
-                        }
-                    ]
-                }}
-            />
-            )}
-        </div>
+      <div className={props.className}>
+        {/* Optional Chaining, checks if data even exists */}
+        {data?.length > 0 && (
+          <Line
+            options={options}
+            data={{
+              datasets: [
+                {
+                  backgroundColor:
+                    casesType === "cases"
+                      ? "rgba(204, 16, 52, 0.5)"
+                      : casesType === "recovered"
+                      ? "rgba(173, 255, 47, 0.5)"
+                      : "rgba(107, 107, 107, 0.5)",
+                  borderColor:
+                    casesType === "cases"
+                      ? "#850a22"
+                      : casesType === "recovered"
+                      ? "#89e200"
+                      : "#454545",
+                  data: data,
+                },
+              ],
+            }}
+          />
+        )}
+      </div>
     );
 }
 

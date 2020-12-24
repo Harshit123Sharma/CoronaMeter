@@ -41,17 +41,14 @@ function Plot({ casesType, countries, center, zoom }) {
             pathOptions={casesTypeColors[casesType].option}
             fillOpacity={0.4}
             radius={
-              Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier
+              (Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier)/5
             }
           >
             <Popup>
               <div className="container">
-                <div
-                  className="flag"
-                  style={{
-                    backgroundImages: `url(${country.countryInfo.flag})`,
-                  }}
-                />
+                <div className="flag">
+                  <img src={country.countryInfo.flag} alt={country.country} />
+                </div>  
                 <div className="name"> {country.country} </div>
                 <div className="confirmed">
                   Cases: {numeral(country.cases).format("0,0")}
