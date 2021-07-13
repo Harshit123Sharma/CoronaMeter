@@ -72,7 +72,6 @@ function App() {
       countryCode === "worldwide" ? setMapZoom(3) : setMapZoom(4);
     });
   };
-
   return (
     <div className="app">
       <div className="left">
@@ -85,9 +84,17 @@ function App() {
               onChange={onCountryChange}
               value={country}
             >
-              <option className="options" value="worldwide">Select Country</option>
+              <option className="options" value="worldwide" key="Select">
+                Select Country
+              </option>
               {countries.map((country) => (
-                <option className="options" value={country.value}>{country.name}</option>
+                <option
+                  className="options"
+                  value={country.value}
+                  key={country.name}
+                >
+                  {country.name}
+                </option>
               ))}
             </Select>
           </FormControl>
@@ -127,9 +134,13 @@ function App() {
       <Card className="right">
         <CardContent>
           <div className="right_side">
-            <h3><b> Live Cases by Country </b></h3>
+            <h3>
+              <b> Live Cases by Country </b>
+            </h3>
             <Tables countries={tableData} />
-            <h3><b> WorldWide new {casesType} </b></h3>
+            <h3>
+              <b> WorldWide new {casesType} </b>
+            </h3>
             <LineGraph className="graph" casesType={casesType} />
           </div>
         </CardContent>

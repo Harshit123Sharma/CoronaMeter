@@ -4,14 +4,18 @@ import "../styles/Tables.css";
 
 function Tables({ countries }) {
     return (
-        <div className="table">
-            {countries.map((country) => (
-                <tr>
-                    <td>{country.country}</td>
-                    <td><strong>{numeral(country.cases).format("0,0")}</strong></td>
-                </tr>
-            ))}
-        </div>
+      <table className="table">
+        <tbody>
+          {countries.map((country) => (
+            <tr key={country.country}>
+              <td>{country.country}</td>
+              <td>
+                <strong>{numeral(country.cases).format("0,0")}</strong>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
 }
 

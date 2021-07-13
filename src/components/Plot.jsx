@@ -37,18 +37,21 @@ function Plot({ casesType, countries, center, zoom }) {
         {/*Draw circles on the map with intercative tooltip.  */}
         {countries.map((country) => (
           <Circle
+            key={country.country}
             center={[country.countryInfo.lat, country.countryInfo.long]}
             pathOptions={casesTypeColors[casesType].option}
             fillOpacity={0.4}
             radius={
-              (Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier)/5
+              (Math.sqrt(country[casesType]) *
+                casesTypeColors[casesType].multiplier) /
+              5
             }
           >
             <Popup>
               <div className="container">
                 <div className="flag">
                   <img src={country.countryInfo.flag} alt={country.country} />
-                </div>  
+                </div>
                 <div className="name"> {country.country} </div>
                 <div className="confirmed">
                   Cases: {numeral(country.cases).format("0,0")}
