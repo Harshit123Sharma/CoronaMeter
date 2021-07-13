@@ -11,7 +11,7 @@ import Plot from "./Plot";
 import Tables from "./Tables";
 import LineGraph from "./LineGraph";
 import { sortData, prettyPrintStat } from "./utill";
-import "./App.css";
+import "../styles/App.css";
 import "leaflet/dist/leaflet.css";
 
 function App() {

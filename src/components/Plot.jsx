@@ -1,5 +1,5 @@
 import React from "react";
-import "./Plot.css";
+import "../styles/Plot.css";
 import { MapContainer, TileLayer, useMap, Circle, Popup } from "react-leaflet";
 import numeral from "numeral";
 
